@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
-import { IBM_Plex_Sans } from 'next/font/google'
+import { Cookie, IBM_Plex_Sans } from 'next/font/google'
 import './globals.css'
 
 const IBMPlex = IBM_Plex_Sans({
@@ -10,8 +10,14 @@ const IBMPlex = IBM_Plex_Sans({
   variable: '--font-ibm-plex',
 })
 
+const CookieSerif = Cookie({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-cookie',
+})
+
 export const metadata: Metadata = {
-  title: 'Imaginify',
+  title: 'CanvaAI',
   description: 'AI powered image generator',
 }
 
@@ -29,7 +35,13 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <body className={cn('font-IBMPlex antialiased', IBMPlex.variable)}>
+        <body
+          className={cn(
+            'font-IBMPlex antialiased',
+            IBMPlex.variable,
+            CookieSerif.variable,
+          )}
+        >
           {children}
         </body>
       </html>
