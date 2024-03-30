@@ -76,7 +76,7 @@
 }
 
 .auth {
-  @apply flex-center min-h-screen w-full bg-violet-200;
+  @apply flex-center min-h-screen w-full;
 }
 .root {
   @apply flex min-h-screen w-full flex-col bg-white lg:flex-row;

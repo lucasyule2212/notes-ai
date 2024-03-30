@@ -1,10 +1,11 @@
 'use client'
-import { Button } from '@/components/ui/button'
+import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
 import { navLinks } from '@/lib/consts/navLinks'
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Logo from '../logo/logo'
 
 const Sidebar = () => {
   const pathname = usePathname()
@@ -13,13 +14,7 @@ const Sidebar = () => {
     <aside className="hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex">
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="flex items-center gap-2 md:py-2">
-          <Image
-            className=""
-            alt="sidebar-logo"
-            width={180}
-            height={28}
-            src="/assets/images/logo-text.svg"
-          />
+          <Logo />
         </Link>
         <nav className="h-full flex-col justify-between md:flex md:gap-4">
           <SignedIn>
@@ -84,12 +79,15 @@ const Sidebar = () => {
             </ul>
           </SignedIn>
           <SignedOut>
-            <Button
-              asChild
-              className="flex-center p-16-semibold gap-3 rounded-full bg-purple-gradient bg-cover px-6 py-4 focus-visible:ring-transparent focus-visible:ring-offset-0"
-            >
-              <Link href="/sign-in" />
-            </Button>
+            <Link href="/sign-in">
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                className="flex w-full items-center justify-center space-x-2 bg-white"
+              >
+                <span className="gradient-text w-52 font-bold">Login</span>
+              </HoverBorderGradient>
+            </Link>
           </SignedOut>
         </nav>
       </div>
