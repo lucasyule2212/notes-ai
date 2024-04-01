@@ -6,18 +6,14 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Logo from '../logo/logo'
 
 const MobileNav = () => {
   const pathname = usePathname()
   return (
     <header className="flex-between fixed h-16 w-full border-b-4 border-purple-100 bg-white p-5 lg:hidden">
       <Link href="/" className="flex items-center gap-2 md:py-2">
-        <Image
-          src="/assets/images/logo-text.svg"
-          alt="logo"
-          width={180}
-          height={28}
-        />
+        <Logo />
       </Link>
       <nav className="flex gap-2">
         <SignedIn>
@@ -34,12 +30,7 @@ const MobileNav = () => {
             </SheetTrigger>
             <SheetContent className="focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 sm:w-64">
               <>
-                <Image
-                  src="/assets/images/logo-text.svg"
-                  alt="logo"
-                  width={152}
-                  height={23}
-                />
+                <Logo />
                 <ul className="mt-8 flex w-full flex-col items-start gap-5">
                   {navLinks.map((link) => {
                     const isActive = pathname === link.route

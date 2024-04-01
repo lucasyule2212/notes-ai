@@ -145,6 +145,8 @@ const TransformationForm = ({
     }))
 
     setNewTransformation(transformationType.config)
+
+    return onChange(field)
   }
 
   const onInputChangeHandler = (
