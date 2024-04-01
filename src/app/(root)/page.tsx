@@ -1,4 +1,5 @@
 import { Collection } from '@/components/shared/collection/collection'
+import { AuroraBackground } from '@/components/ui/aurora-background'
 import { getAllImages } from '@/lib/actions/image.actions'
 import { navLinks } from '@/lib/consts'
 import Image from 'next/image'
@@ -15,9 +16,16 @@ const Home = async ({ searchParams }: SearchParamProps) => {
 
   return (
     <div>
-      <section className="sm:flex-center hidden h-72 flex-col gap-4 rounded-[20px] border bg-banner bg-cover bg-no-repeat p-10 shadow-inner">
-        <h1 className="h1-semibold max-w-[500px] flex-wrap text-center text-white shadow-sm">
-          Unleash Your Creative Vision with Canva AI
+      <AuroraBackground
+        // showRadialGradient={false}
+        className="sm:flex-center hidden h-72 flex-col gap-4 rounded-[20px] border bg-banner bg-cover p-10"
+      >
+        <h1 className="h1-semibold z-10 max-w-[500px] flex-wrap gap-1 text-center text-white">
+          Unleash Your Creative Vision with{' '}
+          <span className="space-x-1">
+            <span className="font-cookie text-5xl">Canva</span>
+            <span className="text-4xl font-bold">AI</span>
+          </span>
         </h1>
         <ul className="flex-center w-full gap-20">
           {navLinks.slice(1, 5).map((link) => (
@@ -33,7 +41,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
             </Link>
           ))}
         </ul>
-      </section>
+      </AuroraBackground>
       <section className="sm:mt-12">
         <Collection
           images={images?.data}
